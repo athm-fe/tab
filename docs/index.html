@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tab</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <h1>Tab</h1>
+  <h2>Trigger by Click</h2>
+  <ul class="nav">
+    <li><a href="javascript:void(0);" class="active" data-toggle="tab" data-target="#tab1-1">市场分析</a></li>
+    <li><a href="javascript:void(0);" data-toggle="tab" data-target="#tab1-2">用户调研</a></li>
+    <li><a href="javascript:void(0);" data-toggle="tab" data-target="#tab1-3">美图欣赏</a></li>
+  </ul>
+  <div class="content">
+    <div id="tab1-1" class="content-item active">...市场分析内容...</div>
+    <div id="tab1-2" class="content-item">...用户调研内容...</div>
+    <div id="tab1-3" class="content-item">...美图欣赏内容...</div>
+  </div>
+
+  <h2>Trigger by Hover</h2>
+  <ul class="nav">
+    <li><a href="javascript:void(0);" class="active" data-toggle="tab" data-target="#tab2-1" data-trigger="hover">市场分析</a></li>
+    <li><a href="javascript:void(0);" data-toggle="tab" data-target="#tab2-2" data-trigger="hover">用户调研</a></li>
+    <li><a href="javascript:void(0);" data-toggle="tab" data-target="#tab2-3" data-trigger="hover">美图欣赏</a></li>
+  </ul>
+  <div class="content">
+    <div id="tab2-1" class="content-item active">...市场分析内容...</div>
+    <div id="tab2-2" class="content-item">...用户调研内容...</div>
+    <div id="tab2-3" class="content-item">...美图欣赏内容...</div>
+  </div>
+
+
+  <h2>Don't use UL</h2>
+  <nav class="nav" data-tab-list>
+    <a href="javascript:void(0);" class="active" data-toggle="tab" data-target="#tab3-1">市场分析</a>
+    <a href="javascript:void(0);" data-toggle="tab" data-target="#tab3-2">用户调研</a>
+    <a href="javascript:void(0);" data-toggle="tab" data-target="#tab3-3">美图欣赏</a>
+  </nav>
+  <div class="content">
+    <div id="tab3-1" class="content-item active">...市场分析内容...</div>
+    <div id="tab3-2" class="content-item">...用户调研内容...</div>
+    <div id="tab3-3" class="content-item">...美图欣赏内容...</div>
+  </div>
+
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../dist/tab.js"></script>
+  <script>
+    $('a[data-toggle="tab"]').on('show.fe.tab', function (e) {
+      console.log(e.target);
+      console.log(e.relatedTarget);
+    });
+  </script>
+</body>
+</html>
