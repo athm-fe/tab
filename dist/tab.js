@@ -1,5 +1,5 @@
 /*!
- * @autofe/tab v0.1.1
+ * @autofe/tab v0.1.2
  * (c) 2018 Autohome Inc.
  * Released under the MIT License.
  */
@@ -115,8 +115,8 @@ Tab.prototype.show = function () {
     return;
   }
 
-  this._activate($elem, $list);
-  this._activate($target, $target.parent(), function () {
+  this._activate($elem, $(previous));
+  this._activate($target, $target.parent().children('.' + String(activeClass)), function () {
     var hiddenEvent = $.Event(Event.HIDDEN, {
       relatedTarget: $elem[0]
     });
@@ -130,11 +130,10 @@ Tab.prototype.show = function () {
   });
 };
 
-Tab.prototype._activate = function ($elem, $container, callback) {
+Tab.prototype._activate = function ($elem, $previous, callback) {
   var activeClass = this.options.activeClass;
-  var previous = $container.find('.' + String(activeClass))[0];
 
-  $(previous).removeClass(activeClass);
+  $previous.removeClass(activeClass);
   $elem.addClass(activeClass);
 
   callback && callback();
